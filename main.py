@@ -1,4 +1,4 @@
-my_list = [
+cliche_list = [
  "absolutely conclusive",
 "agricultural crops",
 "awkward dilemma",
@@ -182,7 +182,7 @@ my_list = [
 "wealth of information",
 "whirlwind campaign",
 "wouldn't touch with a ten foot pole",
-"last but not least ",
+"last but not least",
 "beck and call",
 "betwixt and between",
 "bits and pieces",
@@ -206,7 +206,6 @@ my_list = [
 "various and sundry",
 "very unique",
 ]
-my_text = ""
 
 def ask(prompt, type_=None, min_=None, max_=None, range_=None):
     """Get user input of a certain type, with range and min/max options."""
@@ -248,9 +247,15 @@ def ask(prompt, type_=None, min_=None, max_=None, range_=None):
         else:
             return ui
 
-lowercase_text = my_text.lower()
-for cliche in clichelist:
-  if cliche in my_text:
+text = ""
+file_path = ask("Enter the absoulte or relative path to a text file for checking: ", type_ = str)
+with open(file_path, "r") as my_file:
+    text = my_file.read()
+
+lowercase_text = text.lower()
+print("List of cliches:\n")
+for cliche in cliche_list:
+  if cliche in lowercase_text:
     print(cliche)
   else:
     #print("ok")
